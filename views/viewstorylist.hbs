@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+   	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <style>
+    
+    
+    /*
+    Image credits:
+    uifaces.com (http://uifaces.com/authorized)
+*/
+
+.main-title{
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.page-header { position: relative; }
+.reviews {
+    color: #555;    
+    font-weight: bold;
+    margin: 10px auto 20px;
+}
+.notes {
+    color: #999;
+    font-size: 12px;
+}
+.media .media-object { max-width: 120px; }
+.media-body { 
+    position: relative; 
+        max-width:80% !important;
+        min-width:80% !important;
+        }
+.media-date { 
+    position: absolute; 
+    right: 25px;
+    top: 25px;
+}
+.media-date li { padding: 0; }
+.media-date li:first-child:before { content: ''; }
+.media-date li:before { 
+    content: '.'; 
+    margin-left: -2px; 
+    margin-right: 2px;
+}
+.media-comment { margin-bottom: 20px; }
+.media-replied { margin: 0 0 20px 50px; }
+.media-replied .media-heading { padding-left: 6px; }
+
+.btn-circle {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 6px 15px;
+    border-radius: 20px;
+}
+.btn-circle span { padding-right: 6px; }
+.embed-responsive { margin-bottom: 20px; }
+.tab-content {
+    padding: 50px 15px;
+    border: 1px solid #ddd;
+    border-top: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.custom-input-file {
+    overflow: hidden;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background: #eee url('https://s3.amazonaws.com/uifaces/faces/twitter/walterstephanie/128.jpg');    
+    background-size: 120px;
+    border-radius: 120px;
+}
+input[type="file"]{
+    z-index: 999;
+    line-height: 0;
+    font-size: 0;
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity = 0);-ms-filter: "alpha(opacity=0)";
+    margin: 0;
+    padding:0;
+    left:0;
+}
+
+.write-button{
+  text-align: center;
+}
+
+.uploadPhoto {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    display: none;
+    width: 50%;
+    height: 50%;
+    color: #fff;    
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;    
+    background-color: rgba(0,0,0,.3);
+    border-radius: 50px;
+    cursor: pointer;
+}
+.custom-input-file:hover .uploadPhoto { display: block; }
+
+     #sum{
+            
+     padding-right: 30%;
+    word-wrap: break-word;
+        }
+        
+        
+    
+    </style>
+    
+    
+</head>
+    
+    
+<body>
+ 
+ <div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1" id="logout">
+        <div class="page-header">
+                          
+            </div>
+        </div>
+        <div class="comment-tabs">
+            <h1 style="text-align: center">Storyroom</h1>
+            <div class='write-button'>
+                 <a href='/writestory' class='write-story-button'>
+                    <img style="width: 150px;" src='/images/typewriter.png'>
+                    <p>Write a story</p>
+                 </a>
+             </div> 
+        
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Story List</h4></a></li>
+
+            </ul>
+            
+                
+             
+                    
+            <div class="tab-content">
+                
+                
+                
+<!--                right here   -->
+                  
+                  <ul class='story-list animated fadeIn'>
+                 {{#each data}}  
+                      
+                      
+                <div class="tab-pane active" id="comments-logout">                
+                    <ul class="media-list">
+                      <li class="media">
+                        <a class="pull-left" href="#">
+                          <img class="media-object img-circle" src={{this.avatarLink}} alt="profile">
+                        </a>
+                          
+                          
+                          
+               
+                        <div class="media-body">
+                            
+              
+                                                              
+ 
+                          <div class="well well-lg">
+                              
+                              <h4 class="media-heading text-uppercase reviews">
+                              
+                              <a href='/viewstory?id={{this.id}}'>
+                         <div class='book-cover'>
+                             <a class='story-link' href='/viewstory?id={{this.id}}'>{{this.title}}</a>
+                             <p class='story-author'></p>
+                         </div>
+                         </a>
+                              
+             <h5>by {{this.nickname}}</h5>
+                              
+                              </h4>
+                              
+                              
+                                             <div class="story-summary">
+                            <p id="sum" class="sum-text">{{this.summary}}</p>
+                         </div>          
+                              
+                      
+                              
+
+                
+                     <li class='book-bg' data-id='{{this.id}}' onclick="getStory(this)">
+
+
+
+                     </li> 
+                              
+                              
+                 {{/each}}
+             </ul>
+                              
+                                    
+
+                          </div>
+                             
+                        </div>
+                          
+                          
+                          
+                          
+                          
+                          
+                          
+    
+                    </ul> 
+                </div>
+            
+            </div>
+        </div>
+	</div>
+  </div>
+
+
+
+
+      <script src="/lib/jquery.easyModal.js"></script>
+
+
+         <!-- Open and Close Modal -->
+         <script>
+            $(document).ready(function(){
+               $("#profile-pic-modal").easyModal({
+                  overlayClose: false,
+               });
+
+
+             });
+
+            function openmodal() {
+               $(this).click(function () {
+                  $('#profile-pic-modal').trigger('openModal');
+               });
+            }
+
+            function closemodal() {
+               $(this).click(function () {
+                  $('#profile-pic-modal').trigger('closeModal');
+               });
+
+            } 
+         </script>
+      
+         <!-- Getting Data from Database -->
+         <script>
+            function getStory(self) {
+               
+               var id = $(self).data('id');
+               
+               var json = {
+                 "id": id,
+               }
+               
+               $.post('/viewstory', json, function(data) {
+                 console.log(data);
+                  
+               $('.text').text(data[0].content);
+                  
+                  
+               });
+               
+               openmodal();
+            }
+         </script>
+
+    
+    <script type="text/javascript">
+            var book = document.css("book-cover");
+            var colors = ["#236385", "#F19232", "#445155", "#C12328", "#589842"];
+
+            for(var i = 0; i<book.length; i++) {
+               book[i].style.background = //colors[Math.floor(Math.random() * colors.length)];
+               colors[i];
+            }        
+         </script>
+
+
+
+
+    <script src="js/mentor.js"></script> 
+    <script src="js/mentorr.js"></script> 
+    <script src="js/jquary.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>

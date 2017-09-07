@@ -1,0 +1,18 @@
+
+
+#myModal{
+	background: white;
+	padding: 20px 20px;
+	width: 500px;
+	border-radius: 10px;
+}
+
+.modal-error{
+	padding: 0px 50px;
+	display: inline-block;
+}
+
+.modal-right{
+	display: inline-block;
+	width: 300px;
+}

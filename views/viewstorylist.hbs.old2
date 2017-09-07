@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>View Story</title>
+    
+    <!---------- View Story Links --------->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="/lib/animate.css">
+   
+    <!---------- Google Fonts ------------->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+    
+    <!------------- Styles for View Story Book -------------->
+        <style type="text/css">
+            
+            * { 
+                margin: 0;
+                padding: 0;
+            }
+           
+            body {
+               font-size: 1em;
+            }
+           
+            .write-button {
+               text-align: center;
+               margin: 30px 0 15px 0;
+            }
+           
+            a {
+              border-radius: 5px;
+            }
+            
+            h1 {
+               font-family: 'Playfair Display', serif;
+               color: white;
+               /*text-transform: uppercase;*/
+               text-align: center;
+               font-size: 3.75em;
+               margin: 30px 0 40px 0;
+            }
+
+            .generic-center-container{
+                text-align: center;
+            }
+           
+            .book-bg {
+                position: relative;
+                width: 230px;
+                height: 280px;
+                margin: 100px auto;
+                background: #9b6161;
+                transform-style: preserve-3d;
+                perspective: 500px;
+                list-style: none;
+                border-radius: 25px;
+            }
+        
+            .story-summary {
+                position: absolute;
+                text-align: center;
+                padding: 20px;
+                margin-top: 35px;
+            }
+
+            .sum-text{
+                word-wrap:break-word;
+            }
+       
+            .book-cover {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #5c1d1d;
+                background-size: cover;
+                transform-origin: 0 50%;
+                transition: all 0.5s ease;
+                text-align: center;
+                border-left: 10px solid black;
+                box-sizing: border-box;
+                padding:5px;
+                border-radius: 25px;
+            }
+        
+            .book-cover .story-link{
+                color: white;
+                text-decoration: none;
+                font-size: 1.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+                position:relative;
+                top: 100px;
+                word-wrap: break-word;
+            }
+        
+            .book-cover .story-author{
+                color: white;
+                font-size: 0.8em;
+                font-weight: bold;
+                position:relative;
+                top: 100px;
+                word-wrap: break-word;
+            }
+        
+            .book-bg:hover .book-cover {
+                transform: rotateY(-170deg);
+            }
+           
+            /******************* Summary *********************/
+            
+            #sum {
+               font-size: 1.25em;  
+            }
+
+            .story-summary{
+                cursor: pointer;
+                min-height: 200px;
+                min-width: 100px;
+                max-width: 185px;
+            }
+            
+            /*************** Book Columns Layout *************/
+            
+            .story-list {
+               margin-top: 35px;
+               width: 800px;
+               margin:0px auto;
+               display: inline-block;
+            }
+            .story-list li{
+                  width: 28.3333%;
+                  margin: 2.5% 80px;
+                  display: inline-block;
+            }
+        
+            @media screen and (min-width: 850px) {
+
+               .story-list {
+                  width: 800px;
+               }
+
+               .story-list li {
+                  width: 28.3333%;
+               }
+
+               .story-list li:nth-child(4) {
+                  clear: left;
+               }
+
+            }
+            
+            /***************** Open Modal ******************/
+            #profile-pic-modal {
+               width: 670px;
+               height: 520px;
+               border-radius: 25px;
+               padding: 30px;
+               background: white;
+               color: black;
+            }
+            
+           #profile-pic-modal .text {
+              padding-top: 30px;
+              height: 70%;
+              overflow: auto;
+              overflow-x: hidden;
+              text-align: center;
+           }
+           
+           .button {
+              display: block;
+              background: #f46242;
+              color: white;
+              text-align: center;
+              margin: 20px;
+           }
+           
+           #profile-pic-modal .close-icon {
+              display:block;
+              box-sizing:border-box;
+              width:20px;
+              height:20px;
+              border-width:3px;
+              border-style: solid;
+              border-color:black;
+              border-radius:100%;
+              background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);
+              background-color:black;
+              box-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);
+              transition: all 0.3s ease;
+            }
+
+            .read-story-main-title{
+                color: black;
+            }
+                
+        </style>
+        <style>
+      .animated{
+        -webkit-animation-duration: 0.5s;
+      }
+    </style>
+   </head>
+   
+   <body >  
+       <div class="animated bounceInUp">
+         <div style="margin-top: 100px;"></div>
+         <div class="generic-center-container booklike-container no-padding">
+             <h1 class="read-story-main-title">Read Story</h1>
+             <div class='write-button'>
+                 <a href='/writestory' class='write-story-button'>
+                    <img style="width: 150px;" src='/images/typewriter.png'>
+                    <p>Write a story</p>
+                 </a>
+             </div>  
+             <ul class='story-list animated fadeIn'>
+                 {{#each data}}
+                     <li class='book-bg' data-id='{{this.id}}'>
+                         <div class="story-summary" data-id='{{this.id}}' onclick="getStory(this)">
+                            <p id="sum" class="sum-text">{{this.summary}}</p>
+                         </div>
+
+                         <a href='/viewstory?id={{this.id}}'>
+                         <div class='book-cover'>
+                             <a class='story-link' href='/viewstory?id={{this.id}}'>{{this.title}}</a>
+                             <p class='story-author'>by {{this.nickname}}</p>
+                         </div>
+                         </a>
+                     </li>
+                 {{/each}}
+             </ul>
+            
+         </div>
+         </div>
+         <div id="profile-pic-modal">
+             <a class="close-icon" onclick="closemodal()"></a>
+             <p class="text animated slideInUp"></p>
+         </div>
+      
+      <script src="lib/jquery.easyModal.js"></script>
+
+
+         <!-- Open and Close Modal -->
+         <script>
+            $(document).ready(function(){
+               $("#profile-pic-modal").easyModal({
+                  overlayClose: false
+               });
+
+
+             });
+
+            function openmodal() {
+               $(this).click(function () {
+                  $('#profile-pic-modal').trigger('openModal');
+               });
+            }
+
+            function closemodal() {
+               $(this).click(function () {
+                  $('#profile-pic-modal').trigger('closeModal');
+                  //$('.text').html('');
+               });
+
+            } 
+         </script>
+      
+         <!-- Getting Data from Database -->
+         <script>
+            function getStory(self) {
+               
+               var id = $(self).data('id');
+               
+               var json = {
+                 "id": id,
+               }
+               
+               $.post('/viewstory', json, function(data) {
+                 console.log(data);
+                  
+                 $('.text').html(data[0].content);
+                  
+                  
+               });
+               
+               openmodal();
+            }
+         </script>
+
+         
+
+         <!--<script>
+             var json = {
+                 "id": 60,
+                 "story": "This is a string"
+             }
+
+             $.post('/viewstory', json, function(data) {
+                 console.log(data);
+             });
+         </script>-->
+   
+            
+         <script type="text/javascript">
+            var book = document.getElementsByClassName("book-cover");
+            var colors = ["#236385", "#F19232", "#445155", "#C12328", "#589842"];
+
+            for(var i = 0; i<book.length; i++) {
+               book[i].style.background = //colors[Math.floor(Math.random() * colors.length)];
+               colors[i];
+            }        
+         </script>
+   </body>
+</html>

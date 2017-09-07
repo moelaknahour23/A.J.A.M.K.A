@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/viewstory.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bubble.css">
+    <link rel="stylesheet" type="text/css" href="/lib/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+    <script src="https://use.fontawesome.com/4b546cb46c.js"></script>
+    <style>
+      .animated{
+        -webkit-animation-duration: 0.5s;
+      }
+
+    .welcome-input{
+        display; block;
+        padding: 20px 0px;
+        text-align: center;
+        font-size: 1.5em;
+        margin: 0px auto 70px 0;
+        width: 100%;
+    }
+
+    .booklike-container{
+        opacity: 0.9;
+    }
+
+    .welcome-button{
+        padding: 20px 60px;
+        border: 0px;
+        background: #5d9e5e;
+        color: white;
+        margin: 0px auto;
+        resize: vertical;
+    }
+
+    .welcome-button:hover{
+        cursor: pointer;
+        -webkit-animation: pulse 0.7s;
+        animation: pulse 0.7s;
+    }
+
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="stylesheets/myModal.css">
+            <div id="myModal" class="animated bounceIn" style="display: none">
+              <i class="fa fa-5x fa-exclamation-triangle modal-error animated infinite rubberBand" aria-hidden="true"></i>
+              <div class="modal-right">
+              <h4 class="modal-title"></h4>
+              <div class="modal-content"></div>   
+              </div>
+            </div>
+    <script src="/lib/jquery.easyModal.js"></script>
+    <script src='javascripts/modal.js'></script>
+    <div style="margin-top: 100px;"></div>
+    <div class="generic-center-container booklike-container no-padding animated bounceInUp">
+        <h1 class='text-center'>Welcome to A.J.A.M.K.A,</h1>
+        <h2 class="text-center" >{{nickname}}</h2>
+        
+        <div class='story-list animated fadeIn'>
+            <h3>A few more things to do before you can get started:</h3>
+
+            <h4>Enter your desired nickname:</h4>
+            <input id="welcome-nickname" class="welcome-input" type="text" placeholder="Nickname"></input>
+
+            {{!--<h4>Enter a 1 sentence short description of yourself:</h4>
+            <input id="welcome-description" class="welcome-input" type="text"></input>--}}
+
+            <div style="text-align: center;"
+                <button onclick="submitChange();" class="welcome-button" type="button">All Done!</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitChange(){
+            var nickname = $('#welcome-nickname').val();
+            //var description = $('#welcome-description').val();
+
+            if(nickname.length <= 2){
+                openModal("Oops!, Nickname is too short", "Your desired nickname is too short. Please try a longer one.")
+            } else {
+
+                var json = {
+                    reqType: 'first-time',
+                    nickname: nickname,
+                }
+
+                console.log("Sending over: " + nickname);
+                $.post('/usersapi', json, function(){
+                    window.location.href = "/";
+                });
+            }
+        }
+    </script>
+</body>
+</html>

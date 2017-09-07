@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+
+	<title>Mentors</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="stylesheets/css/mentor.css">
+	<!-- CSS reset -->
+
+	<!-- CSS reset -->
+	<link rel="stylesheet" href="stylesheets/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="stylesheets/css/bootstrap-theme.min.css">
+	<link rel='stylesheet prefetch' href='http://treehouse-code-samples.s3.amazonaws.com/poly/css/application.css'>
+	<link rel='stylesheet prefetch' href='http://alertifyjs.com/build/css/alertify.css'>
+	<link rel='stylesheet prefetch' href='http://alertifyjs.com/build/css/themes/default.css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<style>
+      .animated{
+        -webkit-animation-duration: 0.5s;
+      }
+
+	  body{
+		background: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url('/images/header.jpg')
+	  }
+
+    </style>
+
+
+</head>
+
+<body>
+	<div style="margin-top:100px;"></div>
+	<div class="container animated bounceInUp">
+		<div class="row">
+
+			<section class="content">
+				<h1 style="color: white" >Mentors</h1>
+				<div class="col-md-8 col-md-offset-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="pull-right">
+								<div class="btn-group">
+									<button type="button" class="btn btn-success btn-filter" data-target="psychology">Psychology</button>
+									<button type="button" class="btn btn-warning btn-filter" data-target="health">Health</button>
+									<button type="button" class="btn btn-danger btn-filter" data-target="education">Education</button>
+									<button type="button" class="btn btn-default btn-filter" data-target="all">ALL</button>
+								</div>
+							</div>
+							<div class="table-container">
+								<table class="table table-filter">
+									<tbody>
+										{{#each data}}
+										<tr data-status={{this.category}}>
+											<td></td>
+											<td></td>
+											<td>
+
+												<div class="media" onclick="openModal({{this.id}})">
+													<a href="#" class="pull-left">
+														<img src={{this.avatarlink}} class="media-photo">
+													</a>
+													<div id="myBtn" class="media-body">
+														<span class="media-meta pull-right">Febrero 13, 2016</span>
+														<h4 class="title">
+															{{this.name}}
+															<span class="pull-right psychology">({{this.category}})</span>
+														</h4>
+														<p class="summary">{{this.description}}</p>
+
+
+													</div>
+
+												</div>
+
+											</td>
+										</tr>
+										{{/each}}
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+		</div>
+	</div>
+
+	<div id="myModal" class="modal" data-mentor=''>
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close">&times;</span>
+				<h2>Mohammad laknahour</h2>
+			</div>
+			<div class="modal-body">
+				<div class="grid">
+					<div class="grid">
+						<div class="grid__col--12">
+							<form id="contact-form">
+								<label for="inputName">Name</label>
+								<input class="form__input" id="inputName" type="text" placeholder="Name" name="name" />
+								<label for="inputEmail">Email</label>
+								<input class="form__input" id="inputEmail" type="email" placeholder="Email" name="email" />
+								<label for="inputMessage">Message</label>
+								<textarea class="form__input" id="inputMessage" rows="3" placeholder="Your Message" name="message"></textarea>
+								<input class="display-none" type="text" name="_gotcha" />
+								<input class="btn--default fill" id="email-submit-btn" type="submit" value="Send" />
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="modal-footer">
+				<h4>Psychologist </h4>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+
+					// Get the modal
+			var modal = document.getElementById('myModal');
+
+			// Get the button that opens the modal
+			var btn = document.getElementById("myBtn");
+
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+		// When the user clicks on <span> (x), close the modal
+			span.onclick = function () {
+				modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+
+
+		function openModal(id){
+			// Get the modal
+			var modal = document.getElementById('myModal');
+			modal.setAttribute('data-mentor', id);
+			modal.style.display = "block";
+			
+		}
+	</script>
+
+	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+	<script src='http://alertifyjs.com/build/alertify.js'></script>
+	<script src="javascripts/mentor.js"></script>
+	<script src="javascripts/js/mentor1.js"></script>
+	<script src="javascripts/js/mentor2.js"></script>
+	<script src="javascripts/js/jquary.min.js"></script>
+	<script src="javascripts/js/bootstrap.min.js"></script>
+</body>
+
+</html>

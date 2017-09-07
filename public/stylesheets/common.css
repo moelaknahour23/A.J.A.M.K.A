@@ -1,0 +1,142 @@
+body, html{
+  height: 100%;
+  margin: 0px;
+  width: 100%;
+}
+
+body{
+    font-family: 'Lato', 'sans-serif';
+}
+
+.top-bar{
+    color: #848484;
+    font-family: 'Lato', 'sans-serif';
+    width: 100%;
+    position: fixed;
+    padding: 20px 0px;
+    z-index: 5;
+}
+
+.top-bar-content{
+  padding: 0px 20px;
+}
+
+.top-bar-content a{
+	text-decoration: none;
+	color: #848484;
+}
+
+.login-button{
+    text-decoration: none;
+    float: right;
+    color: #9b9b9b;
+}
+
+.center{
+    margin: 0px auto;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.no-padding{
+    padding: 0px !important;
+}
+
+#lean-overlay{
+	z-index: 2;
+}
+
+.write-story-button{
+	color: #363636;
+	font-weight: bold;
+	padding: 7px 10px;
+	cursor: pointer;
+	display: inline-block;
+	border: 0px;
+	text-decoration: none;
+}
+
+.write-story-button:hover{
+	-webkit-animation: pulse 0.7s;
+    animation: pulse 0.7s;
+}
+
+.no-vert-margin{
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.auth-msg-container{
+	margin: 200px auto;
+	text-align: center;
+}
+
+.auth-msg-container h1{
+	color: black;
+	text-align: center;
+	letter-spacing: 0.05rem;
+	font-size: 3em;
+}
+
+.button-style-1{
+	margin: 0px auto;
+	border: 0px;
+	color: white;
+	background-color: gray;
+	padding: 20px 60px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.button-style-1:hover{
+	background-color: black;;
+	color: white;
+}
+
+.button-style-2{
+	margin: 0px auto;
+	border: 0px;
+	color: white;
+	background-color: #363636;
+	padding: 7px 10px;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.button-style-2:hover{
+	background-color: #1c1c1c;
+	color: white;
+}
+
+.relative-parent{
+	position: relative;
+}
+
+.notification-container{
+	text-align: center;
+	color: #848484;
+	font-weight: bold;
+	position: absolute;
+	margin: 0px auto !important;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translatey(-50%);
+    -moz-transform: translateX(-50%) translatey(-50%);
+    transform: translateX(-50%) translatey(-50%);
+}
+
+.full-height-wrapper{
+   background: #C2C0BB;
+	min-height: 100%;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+#video-bg-elem{
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}

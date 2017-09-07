@@ -1,0 +1,57 @@
+<div class='footer'>
+    
+    <!-- Temporary css placement for demo-->
+    <style>
+        .footer{
+            display: flex;
+            height: 170px;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .footer .column{
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .column img{
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .column ul{
+            color: white;
+            list-style-type: none;
+            text-align: left;
+        }
+
+        .column ul li{
+            color: beige !important;
+            padding: 3px;
+        }
+        
+        .footer a{
+            text-decoration: none;
+            color: beige;
+        }
+    </style>
+    
+    <div class='column'>
+        <img src='/images/mogs.png'>
+    </div>
+    <div class='column'>
+        <ul>
+            <h3>Support</h3>
+            <li><a href='/help'>Help</a></li>
+            <li><a>Developers</a></li>
+        </ul>
+    </div>
+    <div class='column'>
+        <ul>
+            <h3>MOGS.com</h3>
+            <li><a href='/aboutus'>About Us</a></li>
+            <li><a>Email Us</a></li>
+        </ul>
+    </div>
+</div>

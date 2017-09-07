@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    {{> top_bar}}
+    <title>{{userData.nickname}}'s Profile</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="/lib/read-only-template/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/lib/read-only-template/assets/css/main.css" />
+    <link rel="stylesheet" href="/stylesheets/profile3.css" />
+    <link rel="stylesheet" href="/stylesheets/todolist.css" />
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+    <!--[if lte IE 8]><link rel="stylesheet" href="/lib/read-only-template/assets/css/ie8.css" /><![endif]-->
+    <style>
+      #theentirebody{
+        -webkit-animation-duration: 0.5s;
+      }
+
+      h3{
+          color: #4ACAA8;
+      }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="">
+    <!-- Header -->
+    <section id="header">
+        <header>
+            <div class='profile-image-editable' data-userid='{{userData.id}}' data-key='avatarLink'>
+                {{#if allowEdit}}
+                <button type='button' class='edit-button'>
+                    <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                </button> 
+                {{/if}}
+                <span class="image avatar"><img class="edit-content" src="{{userData.avatarLink}}" alt="" /></span>
+                <textarea class='edit-input'></textarea>
+                <div class='profile-button-update-set'>
+                    <button class='dashed-bottom-button profile-update-button'>Update</button>
+                    <button class='dashed-bottom-button profile-cancel-button'>Cancel</button>
+                </div>
+            </div>
+            
+            
+            <div class='profile-editable' data-userid='{{userData.id}}' data-key='nickname'>
+                {{#if allowEdit}}
+                <button type='button' class='edit-button'>
+                    <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                </button> 
+                {{/if}}
+                <h1 class='edit-content' id="logo">{{userData.nickname}}</h1>
+                <textarea class='edit-input'></textarea>
+                <div class='profile-button-update-set'>
+                    <button class='dashed-bottom-button profile-update-button'>Update</button>
+                    <button class='dashed-bottom-button profile-cancel-button'>Cancel</button>
+                </div>
+            </div>
+            
+            
+
+            <div class='profile-editable' data-userid='{{userData.id}}' data-key='description'>
+                {{#if allowEdit}}
+                <button type='button' class='edit-button'>
+                    <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                </button> 
+                {{/if}}
+                <p class='edit-content' id='profile-description'>{{userData.description}}</p>
+                <textarea class='edit-input'></textarea>
+                <div class='profile-button-update-set'>
+                    <button class='dashed-bottom-button profile-update-button'>Update</button>
+                    <button class='dashed-bottom-button profile-cancel-button'>Cancel</button>
+                </div>
+            </div>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="#one" class="active">About Me</a></li>
+                <li><a href="#two">My Stories</a></li>
+                 {{#if allowEdit}}
+                <li><a href="#three">My Journals</a></li>
+                 {{/if}}
+                <li><a href="/profilelist">Other Users</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main" class="animated fadeIn">
+
+            <!-- One -->
+            <section id="one">
+                <div class="container">
+                    <header class="major">
+                        <h2>User Profile</h2>
+                        <p>About Me</p>
+                    </header>
+                    <div class='profile-editable' data-userid='{{userData.id}}' data-key='aboutme'>
+                        {{#if allowEdit}}
+                        <button type='button' class='edit-button'>
+                                                <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                            </button> {{/if}}
+                        <p class='edit-content' id='profile-aboutme'>{{userData.aboutme}}</p>
+                        <textarea class='edit-input'></textarea>
+                        <div class='profile-button-update-set'>
+                            <button class='dashed-bottom-button profile-update-button'>Update</button>
+                            <button class='dashed-bottom-button profile-cancel-button'>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Three -->
+            <section id="two">
+                <div class="container">
+                    <h3>My Stories</h3>
+                    <a href="/writestory">
+                    {{#if allowEdit}}
+                    <button class="slim-green-button margin-bottom"><i class="fa fa-plus" 
+                    aria-hidden="true"></i></button> 
+                    </a>
+                     {{/if}}
+                    <div class="features">
+                        {{#each stories}}
+                        <article class='profile-story-item'>
+                            <h4><a href="/viewstory?id={{this.id}}">{{this.title}}</a></h4>
+                            <p>{{{this.content}}}</p>
+                        </article>
+                        {{else}}
+                            <p>You currently do not have any stories posted!</p>
+                        {{/each}}
+                    </div>
+                </div>
+            </section>
+
+            {{#if allowEdit}}
+            <section id="three" class="flex-parent">
+                <div class="max-width center flex-parent">
+                <div class="mini-container">
+                          <h3>My Journals</h3>
+                    <a href="/journal">
+                    {{#if allowEdit}}
+                    <button class="slim-green-button margin-bottom"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    </a>
+                    {{/if}}
+                    <div class="features">
+                        {{#each journals}}
+                        <article class='profile-journal-item'>
+                            <div class="journal-icon"><i class="fa fa-folder fa-2x" aria-hidden="true"></i></div>
+                            <h4 class="journal-title"><a href="/viewstory?id={{this.id}}">{{this.title}}</a></h4>
+                        </article>
+                        {{else}}
+                            <p>You currently do not have any journal entries!</p>
+                        {{/each}}
+                        
+                    </div>
+                </div>
+
+                <!-- Todo List -->
+
+        <div class="mini-container main-todo-container">
+            <h3>My Todolist</h3>
+            <div class='list-wrapper'>
+                <div class="list-header">
+                    <div class='todolist-header'>In-Progress</div>
+                    <button class="undo-button button-style-1"  style="display: none;" onclick='undoDelete();'>
+                        <i class="fa fa-undo " aria-hidden="true"></i>
+                        Undo Delete
+                    </button>
+                </div>
+                <ul id='todo-list' class="sortable todo-inprogress-set">
+                        <div class='list'>
+                            <li id='list-item-template' class='list-item sort-list' style='display:none;'>
+                                <div class='list-checkbox'></div>
+                                <div class='list-content edit-label' tabindex='0'></div>
+                                <div class='list-control-panel'>
+                                    <div class="list-delete-button"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+                                </div>
+                            </li>
+                        </div>
+                        <li id='add-task-container' class='list-item'>
+                            <div class='list-checkbox-disabled'></div>
+                            <input class='list-content add-task' placeholder='Add a new task here' tabindex='0'></input>
+                        </li>
+                        <div class="detailed-view" style="display: none;">
+                            <button class="button-style-1 dv-back-button">Back</button>
+                            <h2 class='dv-task-title'>No Title</h2>
+                            <div class="dv-headers">Due Date</div>
+                            <p class="dv-due-date">
+                                <button class='button-style-1 dv-due-yes'>YES</button>
+                                <button class='button-style-1 dv-due-no'>NO</button>
+                                <span class='dv-due-date-text' style="display: none;">12/17/2016</span>
+                            </p>
+                            <div class="dv-headers">Description</div>
+                            <textarea class="dv-description"></textarea>
+                        </div>
+                </ul>
+        
+            </div>
+
+            <div class='list-wrapper'>
+                <h2 class="todolist-header">Completed</h2>
+                <div class='progress-container'>
+                    <div class="progress-amount">45%</div>
+                    <div class='progress-bar'></div>
+                </div>
+                <ul id='done-todo-list' class='todo-complete-set'>
+                        <li id='list-item-template' class='list-item hidden'>
+                            <div class='list-checkbox'></div>
+                            <div class='list-content edit-label' tabindex='0'>Click to add new task</div>
+                            <div class='list-control-panel'>
+                                <i class="fa fa-trash-o list-delete-button" aria-hidden="true"></i>
+                            </div>
+                        </li>
+                </ul>
+            </div>
+            <div class="todo-button-set">
+                <button type='button' class="todo-submit"><span>Save</span></button>
+            </div>
+        </div>
+        </div>
+        </section>
+        {{/if}}
+        </div>
+    </div>
+    </div>
+
+     <div id="profile-pic-modal">
+                <h4>Please select a new profile picture</h4>
+                <div class='profile-pic-set'>
+                    {{#each profileImageLinks}}
+                        <img class='profile-pic-select' src='{{this}}'></img>
+                    {{/each}}
+                </div>
+                <textarea class='edit-input' style="display: block; !important"></textarea>
+                
+                <div class='profile-button-update-set text-center' style="display: block">
+                    <button class='dashed-bottom-button profile-update-button'>Update</button>
+                    <button class='dashed-bottom-button profile-cancel-button'>Cancel</button>
+                </div>
+            
+            </div>
+
+    <!-- Scripts -->
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src="/javascripts/profile.js"></script>
+    <script src="/lib/read-only-template/assets/js/jquery.min.js"></script>
+    <script src="/lib/jquery.easyModal.js"></script>
+    <script src="/lib/read-only-template/assets/js/jquery.scrollzer.min.js"></script>
+    <script src="/lib/read-only-template/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/lib/read-only-template/assets/js/skel.min.js"></script>
+    <script src="/lib/read-only-template/assets/js/util.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/javascripts/todolist.js"></script>
+    <!--[if lte IE 8]><script src="/lib/read-only-template/assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/lib/read-only-template/assets/js/main.js"></script>
+
+
+    <script>todo_init();</script>
+    <script>window.scrollTo(0,0)</script>
+</body>
+
+</html>

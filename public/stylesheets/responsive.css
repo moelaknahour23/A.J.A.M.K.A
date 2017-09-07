@@ -1,0 +1,14 @@
+@media screen and (min-width: 750px) {
+   
+   /* CATEGORIES LAYOUT */
+   
+   .categories-1 li {
+      width: 28.3333%;
+   }
+   
+   .categories-1 li:nth-child(4) {
+      clear: left;
+   }
+   
+}
+

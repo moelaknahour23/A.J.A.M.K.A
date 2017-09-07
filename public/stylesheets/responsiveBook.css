@@ -1,0 +1,18 @@
+@media screen and (min-width: 750px) {
+   
+   /* CATEGORIES LAYOUT */
+   
+   .story-list {
+      width: 960px;
+   }
+   
+   .story-list li {
+      width: 28.3333%;
+   }
+   
+   .story-list li:nth-child(4) {
+      clear: left;
+   }
+   
+}
+

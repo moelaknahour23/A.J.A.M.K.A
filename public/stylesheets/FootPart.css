@@ -1,0 +1,45 @@
+/*-----Footer------*/
+
+footer
+{
+    width:100%;
+    background-color: black;
+    height: 159px;
+ }
+
+footer .nav-footer
+{
+	padding-top: 70px;
+}
+
+footer .nav-footer ul li
+{
+    display: inline-flex;
+    margin-left: 70px;
+    list-style: none;
+    padding-top: 0px 0px;
+}
+
+footer .nav-footer ul li a
+{
+    font-family: Calibri, "Times New Roman", Times, serif;
+    font-size: 0.9em;
+    font-weight: 400;
+    text-decoration: none;
+    color: #F4D03F;
+}
+
+.footer-wrapper{
+	text-align: center; 
+}
+
+
+footer img 
+{
+width: 120px;
+position:absolute;
+left: 20px;
+padding-top: 20px;
+}
+
+/*------End of footer------*/

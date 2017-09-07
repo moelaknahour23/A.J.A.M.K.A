@@ -1,0 +1,105 @@
+body{
+    background: white;
+    background-size: cover;
+	background-repeat: no-repeat;
+	background-color: white;
+}
+
+.generic-center-container{
+    width: 50%;
+    background: white;
+    padding: 50px 10% 200px 10%;
+    position: relative;
+    margin: 0px auto;
+    min-width: 350px;
+}
+
+.booklike-container{
+    width: 50%;
+    border: 1px solid #363636;
+    border-left: 35px solid #363636;
+	border-right: 35px solid #363636;
+    margin: 50px auto 50px auto;
+    padding: 50px 7% 50px 7%;
+    min-height: 1100px;
+}
+
+.header-container{
+    border-bottom: 1px dotted black;
+    margin-bottom: 10px;
+}
+
+.header-container .profile-name{
+
+}
+
+.story-list{
+    list-style: none;
+    padding: 50px 7%;
+}
+
+.story-list li{
+    border-bottom: 1px solid #afafaf;
+    padding: 10px;
+	min-height: 50px;
+}
+
+.story-list li:hover{
+    background: #eaeaea;
+}
+
+.story-content{
+	word-wrap: break-word;
+}
+
+.story-list .story-author{
+    margin: 0px;
+    font-size: 0.9em;
+    color: #464646;
+}
+
+.story-list .story-link{
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.story-content{
+  font-size: 1.1em;
+  padding: 70px;
+  line-height: 28px;
+  position: relative;
+}
+
+.cover-image{
+  background: url('https://static.pexels.com/photos/1380/black-and-white-city-skyline-buildings.jpg');
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+}
+
+.outer-header{
+  background-color: white;
+  padding: 0px 40px;
+  border-bottom: 1px solid black;
+}
+
+.profile-name a{
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+
+.outer-header h1{
+  margin-bottom: 0px;
+}
+
+.approve-button{
+	padding: 10px;
+	color: white;
+	background: #363636;
+	border: 0px;
+	margin-top: 10px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TinyMCE - Get Data</title>
+
+        <style>
+            title{
+      font-size:18pt;
+     height:420px;
+     width:200px;
+            
+            }
+        
+        </style>
+
+	</head>
+	<body>
+		<div>
+		<form id="get-data-form" method="post" >
+           
+           
+         Title: <input id="title" type="text"><br>
+                
+            
+            
+            
+			<textarea class="tinymce" id="texteditor"></textarea>
+            
+            <input type="button" onclick="myFunction()" value="Reset form">
+			<input type="submit" value="Get Data">
+			<input type="button" onclick="submitToServer();">Submit</input>
+
+		</form>
+
+		<div id="data-container">
+		</div>
+
+		</div>
+
+		<script>
+
+			function submitToServer(){
+				var textContent = tinymce.get("texteditor").getContent({format: 'text'});
+				var content = tinymce.get("texteditor").getContent();
+
+				var json = {
+					title: "Testing",
+					textContent : textContent,
+					content : content
+				};
+
+				$.post('/writestory/', json, function(data){
+					
+				}).done(function(){
+
+				});
+			}			
+
+		</script>
+
+		<!-- javascript -->
+		<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/lib/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="/lib/tinymce/init-tinymce.js"></script>
+		<script type="text/javascript" src="/javascripts/getdata.js"></script>
+        
+        <script>
+      function myFunction() {
+      	document.getElementById("get-data-form").reset();
+      }
+</script>
+        
+	</body>
+</html>

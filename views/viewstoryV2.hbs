@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/viewstory.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bubble.css">
+    <link rel="stylesheet" type="text/css" href="/lib/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+      .animated{
+        -webkit-animation-duration: 0.5s;
+      }
+    </style>
+</head>
+<body>
+    <div style="margin-top: 200px;"></div>
+    <div class="generic-center-container booklike-container no-padding animated bounceInUp">
+        <div class='story-content animated slideInUp'>
+            <div class="outer-header">
+              <h1>{{story_title}}</h1>
+                <span class='profile-name'>by <a href='./profile?id={{authorid}}'>{{author}}</a></span>
+            </div>
+            
+            {{{story_content}}}
+        </div>
+    </div>
+</body>
+</html>

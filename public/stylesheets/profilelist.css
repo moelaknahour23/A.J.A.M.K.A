@@ -1,0 +1,54 @@
+
+
+.profile-list li{
+	list-style: none;
+	display: flex;
+	max-height: 70px;
+	margin: 0px 0px 17px 0px;
+	border-bottom: 1px solid #ababab;
+	padding: 0px 70px 17px 70px;;
+}
+
+.profile-list li:first-child{
+	padding-top: 17px;
+}
+
+.profile-list{
+	display: block;
+	padding: 0px;
+	margin: 0px auto;
+}
+
+.profile-pic{
+	max-width: 70px;
+	border-radius: 100px;
+	flex: 1;
+}
+
+.profile-list .set{
+	flex: 1;
+	margin-left: 40px;
+}
+
+.profile-list .story-link{
+	text-decoration: none;
+	color: #363636;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+.profile-list .story-author{
+	margin: 10px 0px;
+}
+
+.profile-list-header{
+	text-align: left;
+	padding: 15px 30px;
+	margin: 0px;
+	background: #efefef;
+	border-bottom: 1px solid #ababab;
+}
+
+.booklike-container{
+	border: 1px solid #ababab;;
+}

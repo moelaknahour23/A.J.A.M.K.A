@@ -1,0 +1,52 @@
+
+      form { background: gray; padding: 3px; bottom: 0; width: 100%;}
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: #a2cbcb; border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; overflow: scroll; width: 600px; height: 450px; overflow-x: hidden;
+		margin: 10px 0px 10px 0px;
+	  }
+      #messages li { 
+          padding: 15px 20px;  min-height: 50px;
+          width: 70%;
+          background: white;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          border-radius: 10px;
+          word-wrap: break-word;
+        }
+      .msg-left{
+        
+      }
+      .msg-right{
+        background: white;
+        margin-left: 140px;
+        width: 80%;
+      }
+
+      .msg-nickname{
+        font-size: 0.7em;
+        font-weight: bold;
+        color: #5c8888;
+      }
+	  
+	  #chat-modal{
+	background: #a2cbcb;
+	padding: 30px 70px;
+	z-index: 100 !important;
+}
+
+	.lean-overlay{
+		z-index: 50 !important;
+	}
+	
+	.msg-timestamp{
+		text-align: right;
+		font-size: 0.7em;
+		color: grey;
+	}
+	
+	.modal-title{
+		font-weight: bold;
+		font-size: 1.2em;
+		border-bottom: 1px solid grey;
+	}

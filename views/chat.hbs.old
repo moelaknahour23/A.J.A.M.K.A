@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      .msg-left{
+        
+      }
+      .msg-right{
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    
+
+    <script id="msg-item-template" type="text/tempalte">
+      <li class="msg-item">
+        <h1><%= n %></h1>
+        <div class="msg-content">
+          <%= m %>
+        </div>
+      </li>
+    </script>
+    <script src="/lib/jquery.easyModal.js"></script>
+    <script src='javascripts/chat.js'></script>
+    <script>
+
+
+
+      var json = {
+            reqType: 'get-messages',
+            chatroomid: {{chatroomid}}
+        };
+
+        console.log('Sending to server: ' + json);
+        $.post('/chatapi', json, function(data){
+                console.log('Succesfully sent data to server');
+        }).done(function(data){
+            $.each(data, function(){
+                $('#messages').append(createMessage(this.msg, this.nickname, (this.nickname == nickname)));
+                //$('#messages').append($('<li>').text(this.nickname + ":" + this.msg));
+            })
+        });
+        
+       
+    
+      var socket = io();
+      var room = 'chat-' + {{chatroomid}};
+      var nickname = "{{userData.nickname}}";
+
+      var json = {
+        reqType: 'get-current'
+      };
+      $.post('/usersapi', json, function(data){
+        socket.emit('join', room, data, function() {
+
+        });
+      });
+      
+      $('form').submit(function() {
+        var message = $('#m').val();
+        socket.emit('chat message', message);
+        
+        var json = {
+            reqType: 'post-chat',
+            chatroomid: {{chatroomid}},
+            msg: message
+        };
+
+        console.log('Sending to server: ' + json);
+        $.post('/chatapi', json, function(data){
+                console.log('Succesfully sent data to server');
+        });
+        $('#messages').append(createMessage(message, nickname, true));
+        //$('#messages').append($('<li>').text("Me: " + message));
+          
+        $('#m').val('');
+        return false;
+      })
+      socket.on('chat message', function(msg, nickname){
+        $('#messages').append(createMessage(msg, nickname));
+        //$('#messages').append($('<li>').text(nickname + ":" + msg));
+      })
+    </script>
+
+  </body>
+</html>

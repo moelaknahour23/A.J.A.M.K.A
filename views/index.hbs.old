@@ -1,0 +1,9 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+{{#if authenticated}}
+    <p>Congratulations, you are logged in!</p>
+    <a class="link-button" href="/auth/logout">Logout</a>
+    {{else}}
+    <a class="link-button" href="/auth/google">Login via Google</a>
+{{/if}}
+

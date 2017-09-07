@@ -1,0 +1,48 @@
+h1
+{
+    color: #FFFFFF;
+    font-family:Calibri ;
+    font-size: 24px;
+    font-style: oblique;
+}
+h2
+{
+    color: #AFEEEE;
+    font-family:Calibri ;
+    font-size: 20px;
+}
+h3
+{
+    color: #FFE4E1;
+    font-family:Calibri ;
+    font-size: 33px;
+    font-style: oblique;
+}
+h4
+{
+    color: #F0FFF0;
+    font-family:Calibri ;
+    font-size: 27px;
+    
+}
+
+p
+{
+    color: #FFFFDD;
+    font-family:Calibri ;
+    font-size: 22px;
+}
+
+pre
+{
+    color: #FFFFDD;
+    font-family:Calibri ;
+    font-size: 15px;
+}
+
+body
+{
+    background-color: #46474a;
+    
+}
+

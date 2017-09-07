@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/viewstory.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+</head>
+<body>
+    <div class="generic-center-container booklike-container no-padding">
+        <h1 class='text-center'>Admin</h1>
+        <h4 class='text-center'>Stories awaiting approval</h4>
+        <ul class='story-list animated fadeIn'>
+            {{#each stories}}
+                <li class='story-item' data-storyid={{this.id}}>
+                    <a class='story-link' href='/viewstory?id={{this.id}}'>{{this.title}}</a>
+                    <p class='story-author'>by {{this.authorName}}</p>
+                    <button class='approve-button' type='button'>Approve</button>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <script>
+
+        admin_init();
+
+        function admin_init(){
+            $('.story-item .approve-button').click(function(){
+                var storyid = $(this).parent().data('storyid');
+
+                var json = {
+                    id : storyid,
+                    reqType: 'approve'
+                };
+
+                var self = $(this);
+
+                $.post('/admin', json, function(data){
+                    console.log('Succesfully approved story in database');
+                    self.parent().fadeOut();
+                });
+            });
+        }
+    </script>
+
+
+</body>
+</html>

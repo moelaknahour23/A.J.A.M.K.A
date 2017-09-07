@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset=utf-8>
+<meta name=description content="">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<meta charset=utf-8>
+<meta name=description content="">
+<meta name=viewport content="width=device-width, initial-scale=1">    
+    
+    
+<title>GAME</title>
+<link href="/stylesheets/game/styles.css" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
+        
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+		<!-- Styles -->
+		<link rel="stylesheet" type="text/css" href="/lib/jquery-comments/css/jquery-comments.css">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        
+        <script type="text/javascript" src="/javascripts/game/css-pop.js"></script>
+		<script type="text/javascript" src="/lib/jquery-comments/data/comments-data.js"></script>
+=======
+    
+    
+    <link rel="stylesheet" type="text/css" href="/stylesheets/game/jquery-comments.css">
+        
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Data -->
+		<script type="text/javascript" src="./data/comments-data.js"></script>
+
+    
+    
+    
+		<!-- Styles -->
+		<link rel="stylesheet" type="text/css" href="/stylesheets/jquery-comments.css">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<!-- Data -->
+		<script type="text/javascript" src="./data/comments-data.js"></script>
+>>>>>>> master
+
+		<!-- Libraries -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.textcomplete/1.8.0/jquery.textcomplete.js"></script>
+<<<<<<< HEAD
+		<script type="text/javascript" src="/lib/jquery-comments/js/jquery-comments.js"></script>
+		
+=======
+		<script type="text/javascript" src="js/jquery-comments.js"></script>
+
+		<style type="text/css">
+			body {
+				padding: 20px;
+				margin: 0px;
+				font-size: 14px;
+				font-family: "Arial", Georgia, Serif;
+			}
+		</style>
+
+    
+    
+    
+        <!-- Libraries -->
+    
+    <link rel="stylesheet" type="text/css" href="/stylesheets/game/jquery-comments.css">
+    
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.textcomplete/1.8.0/jquery.textcomplete.js"></script>
+		<script type="text/javascript" src="/javascripts/game/jquery-comments.js"></script>
+
+
+		<style type="text/css">
+			body {
+				padding: 20px;
+				margin: 0px;
+				font-size: 14px;
+				font-family: "Arial", Georgia, Serif;
+			}
+		</style>
+
+		<!-- Init jquery-comments -->
+>>>>>>> master
+		<script type="text/javascript">
+			$(function() {
+				var saveComment = function(data) {
+
+					// Convert pings to human readable format
+					$(data.pings).each(function(index, id) {
+						var user = usersArray.filter(function(user){return user.id == id})[0];
+						data.content = data.content.replace('@' + id, '@' + user.fullname);
+					});
+
+					return data;
+				}
+				$('#comments-container').comments({
+					profilePictureURL: 'https://viima-app.s3.amazonaws.com/media/user_profiles/user-icon.png',
+					currentUserId: 1,
+					roundProfilePictures: true,
+					textareaRows: 1,
+					enableAttachments: true,
+					enableHashtags: true,
+					enablePinging: true,
+					getUsers: function(success, error) {
+						setTimeout(function() {
+							success(usersArray);
+						}, 500);
+					},
+					getComments: function(success, error) {
+						setTimeout(function() {
+							success(commentsArray);
+						}, 500);
+					},
+					postComment: function(data, success, error) {
+						setTimeout(function() {
+							success(saveComment(data));
+						}, 500);
+					},
+					putComment: function(data, success, error) {
+						setTimeout(function() {
+							success(saveComment(data));
+						}, 500);
+					},
+					deleteComment: function(data, success, error) {
+						setTimeout(function() {
+							success();
+						}, 500);
+					},
+					upvoteComment: function(data, success, error) {
+						setTimeout(function() {
+							success(data);
+						}, 500);
+					},
+					uploadAttachments: function(dataArray, success, error) {
+						setTimeout(function() {
+							success(dataArray);
+						}, 500);
+					},
+				});
+			});
+		</script>
+<<<<<<< HEAD
+=======
+    
+    
+    
+    
+  
+    
+ 
+    
+    
+>>>>>>> master
+</head>
+<body>
+<<<<<<< HEAD
+=======
+    
+   
+
+>>>>>>> master
+<div >
+    
+    <div class="relative">
+
+<img src="/images/game/Game1.png" alt="Mountain View" style="width:504px;height:328px;"> 
+         <a href="#" class="imageposition" onclick="popup('popUpDiv')"><img src="/images/game/answerButton.png" alt="Answer" style="width:80px;height:80px;"> </a>
+        </div>
+    
+
+  <div id="mainContent">
+    
+    
+    <div id="blanket" style="display:none;"></div>
+	<div1 id="popUpDiv" style="display:none;">
+             
+        <u1><a href="#" onclick="popup('popUpDiv')" >Close</a></u1>
+
+</div1>
+
+    </div>
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    <div >
+
+        
+        <div class="relative2">
+<img src="/images/game/Game2.png" alt="Mountain View" style="width:504px;height:328px;"> 
+<a href="#" class="imageposition" onclick="popup('popUpDiv2')"><img src="/images/game/answerButton.png" alt="Answer" style="width:80px;height:80px;"></a>
+            
+        </div>
+            
+  <div id="mainContent2">
+  
+    
+    <div id="blanket2" style="display:none;"></div>
+	<div id="popUpDiv2" style="display:none;">
+             
+        <u2><a href="#" onclick="popup('popUpDiv2')" >Close</a></u2>
+
+       </div>
+        </div>
+    
+    </div>
+    
+   
+    <div>
+        
+        
+        <div class="relative3">
+
+<img src="/images/game/Game3.png" alt="Mountain View" style="width:504px;height:328px;"> 
+            <a href="#" class="imageposition" onclick="popup('popUpDiv3')"><img src="/images/game/answerButton.png" alt="Answer" style="width:80px;height:80px;"></a>
+        </div>
+
+  <div id="mainContent3">
+  
+    
+    <div id="blanket3" style="display:none;"></div>
+	<div id="popUpDiv3" style="display:none;">
+             
+        <u3><a href="#" onclick="popup('popUpDiv3')" >Close</a></u3>
+	
+</div>
+        </div>
+        </div>
+<<<<<<< HEAD
+
+		<div id="comments-container"></div>
+=======
+    
+
+    
+<div id="comments-container"></div>
+>>>>>>> master
+</body>
+</html>
+
+
+
+
+
+

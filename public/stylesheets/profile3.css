@@ -1,0 +1,91 @@
+.edit-input{
+	display: none;
+}
+
+.profile-button-update-set{
+	display: none;
+}
+
+.edit-button, .dashed-bottom-button{
+	border: 0px;
+	padding: 3px 15px;
+	margin: 0px 5px;
+	letter-spacing: 0.02rem;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	background: none;
+}
+
+#header > header p{
+	margin: 0px;
+}
+
+.center{
+	margin: 0px auto;
+}
+
+.profile-story-item p{
+	word-wrap: break-word;
+}
+
+.profile-journal-item{
+	border-top: 0px !important;
+	border-bottom: 1px solid #f4f4f4;
+	width: 100%;
+	margin: 0px !important;
+	display: flex;
+}
+
+.journal-icon{
+	display: inline-block;
+	padding: 0px 20px;
+}
+
+.journal-title{
+	display: inline-block;
+}
+
+.edit-button:hover, .dashed-bottom-button:hover{
+	cursor: pointer;
+}
+
+.profile-pic-select{
+	max-width: 110px;
+}
+
+#profile-pic-modal{
+	background: white;
+	padding: 30px 70px;
+	z-index: 50;
+}
+
+.profile-pic-select{
+	border-radius: 100%;
+	box-sizing: border-box;
+}
+
+.profile-pic-select:hover{
+	border-radius: 100%;
+	cursor: pointer;
+}
+
+.profile-pic-select.selected{
+	border: 2px solid black;
+}
+
+.text-center{
+	text-align: center;
+}
+
+#header > header {
+	margin-top: 50px;
+}
+
+.profile-pic-set{
+	min-width: 580px;
+	max-width: 580px;
+}
+
+h1#logo{
+	word-wrap: break-word;
+}

@@ -1,0 +1,30 @@
+h1
+{
+    color: #FFFFDD;
+    font-family:Calibri ;
+    font-size: 33px;
+}
+p1
+{
+    background-color: #46474a;
+    color: #FFFFDD;
+    font-family:Calibri ;
+    font-size: 22px;
+}
+p
+{
+    background-color: #FFFFFF;
+    color: #000000;
+    font-family:Calibri ;
+    font-size: 22px;
+}
+body
+{
+    background-color: #46474a;
+    color: #FFFFDD;
+    font-family:Calibri ;
+    font-size: 20px;
+}
+a, a:visited { 
+    text-decoration:none; 
+    }

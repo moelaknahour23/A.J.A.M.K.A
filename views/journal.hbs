@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://lab.subinsb.com/projects/jquery/core/jquery-latest.js"></script>
+    <script src="javascripts/jquery.notebook.js"></script>
+    <link href="stylesheets/font-awesome.css" rel="stylesheet" />
+    <link href="stylesheets/jquery.notebook.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bubble.css">
+    <link href="stylesheets/style.css" rel="stylesheet" />
+    <style>
+      .animated{
+        -webkit-animation-duration: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <link rel="stylesheet" href="stylesheets/myModal.css">
+            <div id="myModal" style="display: none" class="animated bounceIn">
+              <i class="fa fa-5x fa-exclamation-triangle modal-error animated infinite rubberBand" aria-hidden="true"></i>
+              <div class="modal-right">
+              <h4 class="modal-title"></h4>
+              <div class="modal-content"></div>   
+              </div>
+            </div>
+    <div style="margin-top: 100px;"></div>
+    <div class="animated bounceInUp">
+    <div id="content" style="font-size:15px;">
+      <center><h1>Journal</h1></center>
+
+      <div class="center animated bounceInUp" style="text-align: center;">
+
+        <input id="story-title" type="text" style="margin: 0px;" class="story-title" placeholder="Untitled Entry" value=""></input>
+
+        <div class="paper-wrapper">
+          <div class="paper">
+            <div class="entry" id="story-content"></div>
+          </div>
+        </div>
+      </div>
+
+            
+<script src="/lib/jquery.easyModal.js"></script>
+<script src='javascripts/modal.js'></script>
+              <div class="center" style="text-align:center">
+                <button class="button-submit" type="button" onclick="sendToServer()">Submit Journal Entry</button>
+              </div>
+              </div>
+      <script>
+        $(document).ready(function(){
+          $(".paper .entry").notebook();
+        });
+      </script>
+
+      <script>
+          function sendToServer(){
+            
+            
+            if( document.getElementById('story-title' ).value == ""){
+                
+                  openModal("Cannot post journal", "Journal needs to have a title.");
+                  return false;
+                
+            }
+            
+            else{
+            
+            var dataToSend = document.getElementById('story-content').innerHTML;
+            var text = document.getElementById('story-content').textContent;
+            
+            //Turn into string
+            dataToSend = dataToSend + '';
+            
+            //Put it into a json object since we want all communication with server to be in JSON!
+            var json = {
+                title: document.getElementById('story-title').value,
+                content : dataToSend,
+                textContent : text
+            };
+
+            console.log(dataToSend);
+
+            if(json.content.length <= 100){
+              openModal("Cannot post journal", "Journal needs to be 100 characters or more to be posted.");
+            } else {
+
+                console.log('Sending to server: ' + json);
+                $.post('/writejournal', json, function(data){
+                        console.log('Succesfully sent data to server');
+                        window.location.href = "/myprofile#three";
+                })
+              }
+            }
+            
+        }
+    </script>
+
+
+    </div>
+    <!-- http://subinsb.com/jquery-paper-design-text-editor -->
+  </body>
+</html>

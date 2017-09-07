@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/viewstory.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+    <div class="top-bar">
+        <div class='top-bar-content'>
+          <a href='/' class="logo">MOGS - Share Together</a>
+          {{#if authenticated}}
+              <a class="login-button" href="/auth/logout">LOGOUT</a>
+          {{else}}
+              <a class="login-button" href="/auth/google">LOGIN</a>
+          {{/if}}
+        </div>
+    </div>
+    <div class="margin-top: 100px;"></div>
+    <div class='cover-image'></div>
+    <div class="generic-center-container center animated bounceInUp">
+        <div class="outer-header">
+            <h1>{{story_title}}</h1>
+            <span class='profile-name'>by {{author}}</span>
+        </div>
+        <div class="header-container">
+            <div class='profile-wrapper'>
+                <span class='profile-picture'></span>
+            </div>
+        </div>
+        <div class='story-content no-padding no-vert-margin'>
+                {{story_content}}
+        </div>
+    </div>
+    {{> footer}}
+</body>
+</html>

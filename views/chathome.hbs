@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="stylesheets/hexagons.css">
+      <link href='https://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="stylesheets/room.css">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
+      <link rel="stylesheet" href="lib/animate.css">
+      <link rel="stylesheet" href="/stylesheets/chathome/responsive.css">
+      <link rel="stylesheet" href="/stylesheets/chathome/popupchat.css">
+      <style>
+      .animated{
+        -webkit-animation-duration: 0.5s;
+      }
+    </style>
+   </head>
+   
+   <body>
+     <div class="animated bounceInUp">
+      <div style="margin-top: 100px;"></div>
+      <header class="main_header">
+         <div class="container">
+            <h1 class="main-h1">Welcome to the Chatroom</h1>
+         </div>
+      </header>
+
+      <div class="container">
+         <div class="info group">
+            <h3>The Answer To All Your Questions</h3>
+            <p>The chatroom is the dedicated place to communicate with individuals around the world. Ask or answer questions, and socialize to make yourself feel better.</p>
+         </div>
+      </div>
+   
+   <div class="wrapper">
+      <ul id="hexGrid">
+         <li class="hex" onclick="openChat(1, 'Health');">
+            <div class="hexIn">
+               <a class="hexLink" href="#">
+                  <img id="i1" src="images/Health.png" alt="Health Image" />
+                  <h1>Health</h1>
+                  <p>Tips for better health</p>
+               </a>
+            </div>
+         </li>
+         <li class="hex" onclick="openChat(2, 'Fitness');">
+            <div class="hexIn">
+               <a class="hexLink" href="#">
+                  <img id="i2" src="images/exercise.png" alt="Fitness Image" />
+                  <h1>Fitness</h1>
+                  <p>Get Fit</p>
+               </a>
+            </div>
+         </li>
+         <li class="hex" onclick="openChat(3, 'Food');">
+            <div class="hexIn">
+               <a class="hexLink" href="#">
+                  <img id="i3" src="images/food.png" alt="Food Image" />
+                  <h1>Food</h1>
+                  <p>Eat Well</p>
+               </a>
+            </div>
+         </li>
+         <li class="hex" onclick="openChat(4, 'Achievement');">
+            <div class="hexIn">
+               <a class="hexLink" href="#">
+                  <img id="i4" src="images/Achivment.png" alt="Achievement Image" />
+                  <h1>Achievement</h1>
+                  <p>You Did It!!</p>
+               </a>
+            </div>
+         </li>
+         <li class="hex" onclick="openChat(5, 'City');">
+            <div class="hexIn">
+               <a class="hexLink" href="#">
+                  <img id="i5" src="images/CityLIfe.png" alt="" />
+                  <h1>City Life</h1>
+                  <p>City Attractions</p>
+               </a>
+            </div>
+         </li>
+         <li class="hex" onclick="openChat(6, 'Economy');">
+            <div class="hexIn">
+               <a class="hexLink" href="#">
+                  <img id="i6" src="images/Economy.png" alt="" />
+                  <h1>Economy</h1>
+                  <p>Money Talks</p>
+               </a>
+            </div>
+         </li>
+         <li class="hex" onclick="openChat(7, 'Education');">
+            <div class="hexIn">
+               <a class="hexLink" href="#">
+                  <img id="i7" src="images/Education.png" alt="" />
+                  <h1>Education</h1>
+                  <p>Learn Something New</p>
+               </a>
+            </div>
+         </li>
+      </ul>
+      
+   </div>
+   </div>
+   <div id='chat-modal' class="animated bounceInUp">
+          <div class='modal-title'></div>
+          <ul id="messages"></ul>
+            <form action="">
+                  <input id="m" autocomplete="off" /><button id='chat-send-button'>Send</button>
+            </form>
+    </div>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+      <script src="lib/underscore-min.js"></script>
+      <script src="lib/jquery.easyModal.js"></script>
+      <script id="msg-item-template" type="text/tempalte">
+      <li class="msg-item animated bounceIn">
+        <div class="msg-nickname"><%= n %><span>_<%= i %></span></div>
+        <div class="msg-content">
+          <%= m %>
+        </div>
+        <div class="msg-timestamp"><%= t %></div>
+      </li>
+      </script>
+      <script src="javascripts/chat.js"></script>
+      <script>
+      socket.on('chat message', function(msg, nickname){
+            $('#messages').append(createMessage(msg, nickname, '0'));
+            scrollToBottomChat();
+        //$('#messages').append($('<li>').text(nickname + ":" + msg));
+        });
+      chat_init();
+    </script>
+   </body>
+</html>

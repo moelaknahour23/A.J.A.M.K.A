@@ -1,0 +1,32 @@
+.title{
+    color: white;
+}
+
+.featured{
+    margin-bottom: 30px;
+    text-decoration: underline;
+    color: white;
+}
+
+body {
+    background-image: url(../images/book2.jpg);
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+}
+
+.input-group{
+    margin-top: 20px;
+}
+
+.allBooks{
+    margin-top: 50px;
+}
+.carousel-inner {
+    width: 1200px;
+    height: 500px;
+}
+.fill-parent {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/common.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/viewstory.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bubble.css">
+    <link rel="stylesheet" type="text/css" href="/lib/animate.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/profilelist.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+    <style>
+      .animated{
+        -webkit-animation-duration: 0.5s;
+      }
+    </style>
+</head>
+<body>
+    <div style="margin-top: 100px;"></div>
+    <div class="generic-center-container booklike-container no-padding animated bounceInUp">
+        <h1 class='text-center profile-list-header'>Users List</h1>
+        
+        <ul class='profile-list animated fadeIn'>
+            {{#each data}}
+                <li>
+                    <img class="profile-pic" src={{this.avatarLink}}>
+                    <div class="set">
+                        <a class='story-link' href='/profile?id={{this.id}}'>{{this.nickname}}</a>
+                        <p class='story-author'>{{this.description}}</p>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</body>
+</html>

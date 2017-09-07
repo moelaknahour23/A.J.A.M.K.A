@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>AJAMKA</title>
+   <link rel="stylesheet" href="/stylesheets/chathome/room.css">
+   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
+   <link rel="stylesheet" href="lib/animate.css">
+   <link rel="stylesheet" href="/stylesheets/chathome/responsive.css">
+   <link rel="stylesheet" href="/stylesheets/chathome/popupchat.css">
+</head>
+<body>
+    
+   <div style='width:100%'>
+       <header class="main_header">
+          <div class="container">
+             <h1>Welcome to the Chatroom</h1>
+          </div>
+       </header>
+
+       <div class="container">
+          <div class="info group">
+                <h3>The Answer To All Your Questions</h3>
+                <p>The chatroom is the dedicated place to communicate with individuals around the world. Ask or answer questions, and socialize to make yourself feel better.</p>
+          </div>
+       </div>
+
+       <div class="wrapper">
+          <div class="categories">
+             <section>
+                <ul id="categories-1">
+                   <li>
+                      <div onclick="openChat(1, 'Education');">
+                         <img src="/images/chathome/Education-a.png" width="270" height="190">
+                      </div>
+
+                   </li>
+                   <li>
+                      <div onclick="openChat(2, 'Health');">
+                         <img src="/images/chathome/health-a.png" width="270" height="190">
+                      </div>
+                   </li>
+                   <li>
+                      <div onclick="openChat(3, 'Work');">
+                         <img src="/images/chathome/work-a.png" width="270" height="190">
+                      </div>
+                   </li>
+                   <li>
+                      <div onclick="openChat(4, 'Work');">
+                         <img src="/images/chathome/Work-r.png" width="270" height="190">
+                      </div>
+                   </li>
+                   <li>
+                      <div onclick="openChat(5, 'Health');">
+                         <img src="/images/chathome/Health-r.png" width="270" height="190">
+                      </div>
+                   </li>
+                   <li>
+                      <div onclick="openChat(6, 'Family');">
+                         <img src="/images/chathome/Family-r.png" width="270" height="190">
+                      </div>
+                   </li>
+                </ul>
+             </section>
+          </div>
+    </div>
+
+    <div id='chat-modal'>
+          <div class='modal-title'></div>
+          <ul id="messages"></ul>
+            <form action="">
+                  <input id="m" autocomplete="off" /><button id='chat-send-button'>Send</button>
+            </form>
+    </div>
+</div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+      <script src="lib/underscore-min.js"></script>
+      <script src="lib/jquery.easyModal.js"></script>
+      <script src="lib/moment.min.js" type="text/javascript"></script>
+      <script id="msg-item-template" type="text/tempalte">
+      <li class="msg-item animated bounceIn">
+        <div class="msg-nickname"><%= n %><span>_<%= i %></span></div>
+        <div class="msg-content">
+          <%= m %>
+        </div>
+        <div class="msg-timestamp"><%= t %></div>
+      </li>
+      </script>
+      <script src="javascripts/chat.js"></script>
+      <script>
+      socket.on('chat message', function(msg, nickname){
+            $('#messages').append(createMessage(msg, nickname, '0'));
+            scrollToBottomChat();
+        //$('#messages').append($('<li>').text(nickname + ":" + msg));
+        });
+      chat_init();
+    </script>
+</body>
+</html>
